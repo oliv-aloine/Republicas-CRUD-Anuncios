@@ -1,0 +1,14 @@
+.camposForm {
+    font-weight: bolder;
+}
+::placeholder {
+    color: rgb(180, 180, 180) !important;
+    opacity: 3;
+}
+ h2 {
+     text-align: center;
+ }
+
+ #btnActions{
+     padding: 20px;
+ }
