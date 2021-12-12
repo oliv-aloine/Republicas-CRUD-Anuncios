@@ -30,7 +30,12 @@ if (!db) {
 
 // Exibe mensagem em um elemento de ID msg
 function displayMessage(msg) {
-    $('#msg').html('<div class="alert alert-warning">' + msg + '</div>');
+    // $('#msg').html('<div class="alert alert-warning">' + msg + '</div>');
+    Swal.fire(
+        'Alerta',
+        msg,
+        'success'
+      )
 }
 
 function insertAnuncio(anuncio) {
