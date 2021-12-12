@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sprint2</title>
+    <title>CRUD Anúncios</title>
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -26,51 +26,198 @@
                     <input type="text" class="form-control" id="inputId" placeholder="ID" disabled>
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                    <label class="camposForm" for="inputTitulo">Titulo</label>
+                    <label class="camposForm" for="inputTitulo">Título</label>
                     <input type="text" class="form-control" id="inputTitulo" required
-                        placeholder="Informe o titulo do anuncio">
+                        placeholder="Informe o Título do Anúncio">
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                    <label class="camposForm" for="inputDescricao">Descricao</label>
+                    <label class="camposForm" for="inputDescricao">Descrição</label>
                     <input type="text" class="form-control" id="inputDescricao" required
                         placeholder="Informe a Descrição do Anúncio">
                 </div>
             </div>
+
+            <div class="py-1 row">
+                <div class="col-12">
+                    <label for="input-foto-anuncio" class="btn btn-secondary">Adicionar foto</label>
+                    <input id="input-foto-anuncio" class="d-none" type="file" accept="image/*" multiple>
+                </div>
+                <div id="container-fotos-anuncio" class="col-12">
+                    <!-- -- Fotos serão injetadas aqui via javascript -- -->
+                </div>
+            </div>
+
             <div class="form-group row">
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                     <label class="camposForm" for="inputTipo">Tipo</label>
                     <select name="Tipo" id="inputTipo" class="form-control">
-                        <option value="" required
-                        placeholder="Selecione o Tipo do Imóvel">Selecione o Tipo do Imóvel</option>
+                        <option value="" required placeholder="Selecione o Tipo do Imóvel">Selecione o Tipo do Imóvel
+                        </option>
                         <option value="Apartamento">Apartamento</option>
                         <option value="Casa">Casa</option>
                     </select>
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                     <label class="camposForm" for="inputValor">Valor</label>
-                    <input type="number" class="form-control" id="inputValor" required
-                        placeholder="Informe o Valor do Aluguel Mensal do Imóvel">
+                    <input class="form-control" id="inputValor" required
+                        data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'radixPoint': ',', 'digits': 2, 'digitsOptional': false, 'prefix': 'R$ '"
+                    >
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                    <label class="camposForm" for="inputUniversidade">Universidade Próxima</label>
+                    <label class="camposForm" for="inputUniversidade">Universidade Mais Próxima</label>
                     <input type="text" class="form-control" id="inputUniversidade" required
                         placeholder="Informe a Universidade mais próxima">
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                    <label class="camposForm" for="inputDistancia">Distância da Universidade</label>
+                    <label class="camposForm" for="inputDistancia">Distância da Universidade em Km</label>
                     <input type="number" class="form-control" id="inputDistancia" required
                         placeholder="Informe a distância da Universidade em Km">
                 </div>
             </div>
+
+            <div class="form-group row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <label class="camposForm" for="inputComodidades">Comodidades</label>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="check-quarto-mobiliado">
+                        <label class="form-check-label" for="check-quarto-mobiliado">
+                            Quarto Mobiliado
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="check-area-privativa">
+                        <label class="form-check-label" for="check-area-privativa">
+                            Área Privativa
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="check-garagem">
+                        <label class="form-check-label" for="check-garagem">
+                            Garagem
+                        </label>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="check-contas-basicas">
+                        <label class="form-check-label" for="check-contas-basicas">
+                            Contas Básicas Inclusas
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="check-limpeza">
+                        <label class="form-check-label" for="check-limpeza">
+                            Limpeza
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="check-wifi">
+                        <label class="form-check-label" for="check-wifi">
+                            Wi-Fi
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <label class="camposForm" for="inputDetalhes">Detalhes do Imóvel</label>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6">       
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="check-permite-visitas">
+                        <label class="form-check-label" for="check-permite-visitas">
+                            Permite Visitas
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="check-aceita-fumantes">
+                        <label class="form-check-label" for="check-aceita-fumantes">
+                            Aceita Fumantes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="check-aceita-pet">
+                        <label class="form-check-label" for="check-aceita-pet">
+                            Aceita Pets
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="check-bebida-alcoolica">
+                        <label class="form-check-label" for="check-bebida-alcoolica">
+                            Aceita Bebida Alcóolica
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="check-lgbtq">
+                        <label class="form-check-label" for="check-lgbtq">
+                            LGBTQ+
+                        </label>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="check-apenas-homens">
+                        <label class="form-check-label" for="check-apenas-homens">
+                            Apenas Homens
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="check-apenas-mulheres">
+                        <label class="form-check-label" for="check-apenas-mulheres">
+                            Apenas Mulheres
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="check-transporte-proximo">
+                        <label class="form-check-label" for="check-transporte-proximo">
+                            Transporte Próximo
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="check-comercio-proximo">
+                        <label class="form-check-label" for="check-comercio-proximo">
+                            Comércio Próximo
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <label class="camposForm" for="inputQuantidades">Informe a quantidade de:</label>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                    <div>Banheiros: <input type="number" class="form-control" id="inputBanheiros" required></div>
+                    <div>Quartos: <input type="number" class="form-control" id="inputQuartos" required></div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                    <div>Salas: <input type="number" class="form-control" id="inputSalas" required></div>
+                    <div>Hóspedes: <input type="number" class="form-control" id="inputHospedes" required></div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <label class="camposForm" for="inputContato">Contato</label>
+                    <input type="text" class="form-control" id="inputContato" required
+                        placeholder="(XX) XXXXX-XXXXX">
+                </div>
+            </div>
+            
+
             <div class="form-group row">
                 <div id="btnActions" class="col-12 col-sm-12 col-md-12 col-lg-12">
                     <input type="button" class="btn btn-primary" id="btnInsert" value="Adicionar">
                     <input type="button" class="btn btn-warning" id="btnUpdate" value="Editar">
-                    <a href="anuncios.html"><input type="button" class="btn btn-outline-secondary" id="btnLoad" value="Ver Anuncios"></a>
+                    <a href="anuncios.html"><input type="button" class="btn btn-outline-secondary" id="btnLoad"
+                            value="Ver Anuncios"></a>
                 </div>
             </div>
         </form>
@@ -85,8 +232,12 @@
                             <th scope="col">Descricao</th>
                             <th scope="col">Tipo</th>
                             <th scope="col">Valor</th>
+                            <th scope="col">Contato</th>
                             <th scope="col">Universidade Próxima</th>
                             <th scope="col">Distância da Universidade</th>
+                            <th scope="col">Comodidades</th>
+                            <th scope="col">Detalhes</th>
+                            <th scope="col">Quantidades</th>
                         </tr>
                     </thead>
                     <tbody id="table-anuncios">
@@ -103,18 +254,19 @@
                 </table>
             </div>
         </div>
-
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.js" integrity="sha512-9ekM9CHlUVUQX0M1UYcQKzCn7WaGRocDHddevyvDQ2UBVNha49jv1o8/+dEHmTZp5HZ3UAvunsD2ySb2BkqzwQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/bindings/inputmask.binding.js" integrity="sha512-J6WEJE0No+5Qqm9/T93q88yRQjvoAioXG4gzJ+eqZtLi+ZBgimZDkTiLWiljwrwnoQw+xwECQm282RJ6CrJnlw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="app.js"></script>
+    <script src="foto-utilitarios.js"></script>
 
     <script>
-         // função para listar anuncios
+        // função para listar anuncios
         function ListaAnuncios() {
 
             // limpa a lista de contatos apresentados
@@ -124,15 +276,100 @@
             for (let index = 0; index < db.data.length; index++) {
                 const anuncio = db.data[index];
 
-                $("#table-anuncios").append(`<tr><td scope="row">${anuncio.id}</td>
-                                                    <td>${anuncio.titulo}</td>
-                                                    <td>${anuncio.descricao}</td>
-                                                    <td>${anuncio.tipo}</td>
-                                                    <td>${anuncio.valor}</td>
-                                                    <td>${anuncio.universidadeProxima}</td>
-                                                    <td>${anuncio.distanciaUniversidade}</td>
-                                                </tr>`);
+                let $tr = $("<tr></tr>")
+                $tr.append(`<td>${anuncio.id}</td>`);
+                $tr.append(`<td>${anuncio.titulo}</td>`);
+                $tr.append(`<td>${anuncio.descricao}</td>`);
+                $tr.append(`<td>${anuncio.tipo}</td>`);
+                $tr.append(`<td>${anuncio.valor}</td>`);
+                $tr.append(`<td>${anuncio.contato}</td>`);
+                $tr.append(`<td>${anuncio.universidadeProxima}</td>`);
+                $tr.append(`<td>${anuncio.distanciaUniversidade}</td>`);
+                $tr.append(`<td>
+                    Quarto Mobiliado: ${anuncio.comodidades.quartoMobiliado}<br>
+                    Área Privativa: ${anuncio.comodidades.areaPrivativa}<br>
+                    Garagem: ${anuncio.comodidades.garagem}<br>
+                    Contas Básicas: ${anuncio.comodidades.contasBasicas}<br>
+                    Limpeza:${anuncio.comodidades.limpeza}<br>
+                    Wi-Fi: ${anuncio.comodidades.wifi}<br>
+                </td>`);
+                $tr.append(`<td>
+                    Permite Visitas: ${anuncio.detalhes.permiteVisitas}<br>
+                    Aceita Fumantes: ${anuncio.detalhes.aceitaFumantes}<br>
+                    Aceita Pets: ${anuncio.detalhes.aceitaPet}<br>
+                    Aceita Bebida Alcóolica: ${anuncio.detalhes.aceitaBebidaAlcoolica}<br>
+                    LGBTQ: ${anuncio.detalhes.lgbtq}<br>
+                    Apenas Homens: ${anuncio.detalhes.apenasHomens}<br>
+                    Apenas Mulheres: ${anuncio.detalhes.apenasMulheres}<br>
+                    Transporte Próximo: ${anuncio.detalhes.transporteProximo}<br>
+                    Comércio Próximo: ${anuncio.detalhes.comercioProximo}<br>
+                </td>`);
+                $tr.append(`<td>
+                    Banheiros: ${anuncio.quantidades.banheiros}<br>
+                    Quartos: ${anuncio.quantidades.quartos}<br>
+                    Salas: ${anuncio.quantidades.salas}<br>
+                    Hóspedes: ${anuncio.quantidades.hospedes}<br>
+                </td>`);
+
+
+                $("#table-anuncios").append($tr);
+
             }
+        }
+
+        async function montarArrayDeFotosBase64() {
+            // https://developer.mozilla.org/pt-BR/docs/Web/API/File/Using_files_from_web_applications
+            const fotos = $("#input-foto-anuncio").prop("files");
+            console.debug("input-foto-anuncio fotos", fotos)
+            let fotosBase64 = []
+            for (const foto of fotos) {
+                let fotoBase64 = await blobToBase64(await resizeImage(foto));
+                fotosBase64.push(fotoBase64)
+            }
+            console.debug({fotosBase64})
+            return fotosBase64
+        }
+
+        // montarObjetoAnuncio lê o formulario e retorna
+        // um objeto anuncio
+        function montarObjetoAnuncio() {
+            // Obtem os valores dos campos do formulário
+            let anuncio = {
+                titulo: $("#inputTitulo").val(),
+                descricao: $("#inputDescricao").val(),
+                fotos: [],
+                tipo: $('#inputTipo').val(),
+                universidadeProxima: $('#inputUniversidade').val(),
+                distanciaUniversidade: $('#inputDistancia').val(),
+                comodidades: {
+                    quartoMobiliado: $("#check-quarto-mobiliado").prop("checked"),
+                    areaPrivativa: $("#check-area-privativa").prop("checked"),
+                    garagem: $("#check-garagem").prop("checked"),
+                    contasBasicas: $("#check-permite-visitas").prop("checked"),
+                    limpeza: $("#check-permite-visitas").prop("checked"),
+                    wifi: $("#check-wifi").prop("checked")
+                },
+                detalhes: {
+                    permiteVisitas: $("#check-permite-visitas").prop("checked"),
+                    aceitaFumantes: $("#check-aceita-fumantes").prop("checked"),
+                    aceitaPet: $("#check-aceita-pet").prop("checked"),
+                    aceitaBebidaAlcoolica: $("#check-bebida-alcoolica").prop("checked"),
+                    lgbtq: $("#check-lgbtq").prop("checked"),
+                    apenasHomens: $("#check-apenas-homens").prop("checked"),
+                    apenasMulheres: $("#check-apenas-mulheres").prop("checked"),
+                    transporteProximo: $("#check-transporte-proximo").prop("checked"),
+                    comercioProximo: $("#check-comercio-proximo").prop("checked")
+                },
+                quantidades: {
+                    banheiros: $('#inputBanheiros').val(),
+                    quartos: $('#inputQuartos').val(),
+                    salas: $('#inputSalas').val(),
+                    hospedes: $('#inputHospedes').val(),
+                },
+                contato: $('#inputContato').val(),
+                valor: $("#inputValor").val(),
+            };
+            return anuncio;
         }
 
         function init() {
@@ -145,46 +382,22 @@
                 }
 
                 // Obtem os valores dos campos do formulário
-                let campoTitulo = $("#inputTitulo").val();
-                let campoDescricao = $("#inputDescricao").val();
-                let campoTipo = $('#inputTipo').val();
-                let campoValor = $("#inputValor").val();
-                let campoUniversidade = $('#inputUniversidade').val();
-                let campoDistancia = $('#inputDistancia').val();
-                let anuncio = { titulo: campoTitulo, 
-                    descricao: campoDescricao, 
-                    tipo: campoTipo, 
-                    valor: campoValor, 
-                    universidadeProxima: campoUniversidade,
-                    distanciaUniversidade: campoDistancia };
-
+                let anuncio = montarObjetoAnuncio();
                 insertAnuncio(anuncio);
 
                 // Limpa o formulario
                 $("#form-anuncio")[0].reset();
             });
 
-           // Intercepta o click do botão Alterar
-        $("#btnUpdate").click(function () {
+            // Intercepta o click do botão Alterar
+            $("#btnUpdate").click(function () {
                 // Obtem os valores dos campos do formulário
                 let campoId = $("#inputId").val();
                 if (campoId == "") {
                     displayMessage("Selecione um anuncio para ser alterado.");
                     return;
                 }
-                let campoTitulo = $("#inputTitulo").val();
-                let campoDescricao = $("#inputDescricao").val();
-                let campoTipo = $("#inputTipo").val();
-                let campoValor = $("#inputValor").val();
-                let campoUniversidade = $('#inputUniversidade').val();
-                let campoDistancia = $('#inputDistancia').val();
-                let anuncio = { titulo: campoTitulo, 
-                    descricao: campoDescricao, 
-                    tipo: campoTipo, 
-                    valor: campoValor, 
-                    universidadeProxima: campoUniversidade,
-                    distanciaUniversidade: campoDistancia };
-
+                let anuncio = montarObjetoAnuncio();
                 updateAnuncio(parseInt(campoId), anuncio);
 
                 // mostra anuncios
@@ -210,17 +423,36 @@
 
             // Preenche formulario ao clicar
             $("#grid-anuncios").on("click", "tr", function (e) {
-                let linhaContato = this;
-                colunas = linhaContato.querySelectorAll("td");
+                let linhaAnuncio = this;
+                colunas = linhaAnuncio.querySelectorAll("td");
 
                 $("#inputId").val(colunas[0].innerText);
                 $("#inputTitulo").val(colunas[1].innerText);
                 $("#inputDescricao").val(colunas[2].innerText);
                 $("#inputTipo").val(colunas[3].innerText);
                 $("#inputValor").val(colunas[4].innerText);
-                $("#inputUniversidade").val(colunas[5].innerText);
-                $("#inputDistancia").val(colunas[6].innerText);
+                $("#inputContato").val(colunas[5].innerText);
+                $("#inputUniversidade").val(colunas[6].innerText);
+                $("#inputDistancia").val(colunas[7].innerText);
             });
+
+            $("#input-foto-anuncio").change(async (e) => {
+                // https://developer.mozilla.org/pt-BR/docs/Web/API/File/Using_files_from_web_applications
+                const fotosBase64 = await montarArrayDeFotosBase64();
+                console.debug("input-foto-anuncio change:", e,  "fotos", fotosBase64)
+                $("#container-fotos-anuncio").empty()
+                for (const fotoBase64 of fotosBase64) {
+                    $("#container-fotos-anuncio").append(`
+                        <img src="${fotoBase64}" class="img-thumbnail foto-anuncio" alt="foto anuncio ">
+                    `);
+                }
+            })
+            
+            // Reseta o input de arquivos ao iniciar a página
+            $("#input-foto-anuncio").val('');
+
+            // Referencia: https://github.com/RobinHerbots/Inputmask#via-jquery-plugin
+            $("#inputContato").inputmask("(99) 99999-9999");  //static mask
 
             ListaAnuncios();
         }

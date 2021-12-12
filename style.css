@@ -1,5 +1,7 @@
 .camposForm {
     font-weight: bolder;
+    padding: 3px;
+    display: block;
 }
 ::placeholder {
     color: rgb(180, 180, 180) !important;
@@ -12,3 +14,8 @@
  #btnActions{
      padding: 20px;
  }
+
+.foto-anuncio {
+    max-height: 100px;
+    max-width: 100px;
+}
