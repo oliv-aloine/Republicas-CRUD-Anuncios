@@ -14,9 +14,17 @@
 </head>
 
 <body onload="ListaAnuncios()">
-    <h2>Lista de Anúncios</h2>
 
-    <div class="container">
+        <header class="container header">
+        <div class="row header">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <img class="logo" src="img/Projeto_TIAW.png" alt="logo">
+                <h2 id="titulo_pagina">Lista de Anúncios</h2>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container main">
 
         <div class="row">
             <div>
@@ -87,7 +95,7 @@
                     Área Privativa: ${anuncio.comodidades.areaPrivativa}<br>
                     Garagem: ${anuncio.comodidades.garagem}<br>
                     Contas Básicas: ${anuncio.comodidades.contasBasicas}<br>
-                    Limpeza:${anuncio.comodidades.limpeza}<br>
+                    Limpeza: ${anuncio.comodidades.limpeza}<br>
                     Wi-Fi: ${anuncio.comodidades.wifi}<br>
                 </td>`);
                 $tr.append(`<td>
@@ -117,7 +125,6 @@
 
                 $("#table-anuncios").append($tr);
             }
-
         }
     </script>
 

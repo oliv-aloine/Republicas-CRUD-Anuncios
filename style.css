@@ -1,21 +1,33 @@
+/* header */
+img.logo {
+    width: 80px;
+    height: 80px;
+}
+
+#titulo_pagina {
+    padding-top: 20px;
+    display: inline;
+}
+/* header */
+
+/* body */
 .camposForm {
     font-weight: bolder;
-    padding: 3px;
-    display: block;
+    padding-top: 3px;
+    padding-bottom: 3px;
 }
+
 ::placeholder {
     color: rgb(180, 180, 180) !important;
     opacity: 3;
 }
- h2 {
-     text-align: center;
- }
 
- #btnActions{
-     padding: 20px;
- }
+#btnActions{
+    padding: 20px;
+}
 
 .foto-anuncio {
     max-height: 100px;
     max-width: 100px;
 }
+/* body */

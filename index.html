@@ -15,12 +15,19 @@
 
 <body onload="init()">
 
-    <h2>Cadastro de Anúncios</h2>
+    <header class="container header">
+        <div class="row header">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <img class="logo" src="img/Projeto_TIAW.png" alt="logo">
+                <h2 id="titulo_pagina">Cadastrar Anúncio</h2>
+            </div>
+        </div>
+    </header>
 
-    <div class="container">
+    <div class="container main">
 
         <form id="form-anuncio">
-            <div class="form-group row">
+            <div class="form-group row id-titulo">
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                     <label class="camposForm" for="inputId">Id</label>
                     <input type="text" class="form-control" id="inputId" placeholder="ID" disabled>
@@ -31,7 +38,8 @@
                         placeholder="Informe o Título do Anúncio">
                 </div>
             </div>
-            <div class="form-group row">
+
+            <div class="form-group row descricao">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                     <label class="camposForm" for="inputDescricao">Descrição</label>
                     <input type="text" class="form-control" id="inputDescricao" required
@@ -49,7 +57,7 @@
                 </div>
             </div>
 
-            <div class="form-group row">
+            <div class="form-group row tipo-valor">
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                     <label class="camposForm" for="inputTipo">Tipo</label>
                     <select name="Tipo" id="inputTipo" class="form-control">
@@ -62,11 +70,11 @@
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                     <label class="camposForm" for="inputValor">Valor</label>
                     <input class="form-control" id="inputValor" required
-                        data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'radixPoint': ',', 'digits': 2, 'digitsOptional': false, 'prefix': 'R$ '"
-                    >
+                        data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'radixPoint': ',', 'digits': 2, 'digitsOptional': false, 'prefix': 'R$ '">
                 </div>
             </div>
-            <div class="form-group row">
+
+            <div class="form-group row universidade-distancia">
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                     <label class="camposForm" for="inputUniversidade">Universidade Mais Próxima</label>
                     <input type="text" class="form-control" id="inputUniversidade" required
@@ -79,7 +87,7 @@
                 </div>
             </div>
 
-            <div class="form-group row">
+            <div class="form-group row comodidades">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                     <label class="camposForm" for="inputComodidades">Comodidades</label>
                 </div>
@@ -125,11 +133,11 @@
                 </div>
             </div>
 
-            <div class="form-group row">
+            <div class="form-group row detalhesImovel">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                     <label class="camposForm" for="inputDetalhes">Detalhes do Imóvel</label>
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6">       
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="check-permite-visitas">
                         <label class="form-check-label" for="check-permite-visitas">
@@ -189,30 +197,30 @@
                 </div>
             </div>
 
-            <div class="form-group row">
+            <div class="form-group row quantidades">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                    <label class="camposForm" for="inputQuantidades">Informe a quantidade de:</label>
+                    <label class="camposForm" for="inputQuantidades">Informe a Quantidade Total de:</label>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                     <div>Banheiros: <input type="number" class="form-control" id="inputBanheiros" required></div>
-                    <div>Quartos: <input type="number" class="form-control" id="inputQuartos" required></div>
+                    <div>Quartos : <input type="number" class="form-control" id="inputQuartos" required></div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                     <div>Salas: <input type="number" class="form-control" id="inputSalas" required></div>
-                    <div>Hóspedes: <input type="number" class="form-control" id="inputHospedes" required></div>
+                    <div>Hóspedes Já Presentes: <input type="number" class="form-control" id="inputHospedes" required>
+                    </div>
                 </div>
             </div>
 
             <div class="form-group row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                     <label class="camposForm" for="inputContato">Contato</label>
-                    <input type="text" class="form-control" id="inputContato" required
-                        placeholder="(XX) XXXXX-XXXXX">
+                    <input type="text" class="form-control" id="inputContato" required placeholder="(XX) XXXXX-XXXXX">
                 </div>
             </div>
-            
 
-            <div class="form-group row">
+
+            <div class="form-group row actions">
                 <div id="btnActions" class="col-12 col-sm-12 col-md-12 col-lg-12">
                     <input type="button" class="btn btn-primary" id="btnInsert" value="Adicionar">
                     <input type="button" class="btn btn-warning" id="btnUpdate" value="Editar">
@@ -259,8 +267,12 @@
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.js" integrity="sha512-9ekM9CHlUVUQX0M1UYcQKzCn7WaGRocDHddevyvDQ2UBVNha49jv1o8/+dEHmTZp5HZ3UAvunsD2ySb2BkqzwQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/bindings/inputmask.binding.js" integrity="sha512-J6WEJE0No+5Qqm9/T93q88yRQjvoAioXG4gzJ+eqZtLi+ZBgimZDkTiLWiljwrwnoQw+xwECQm282RJ6CrJnlw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.js"
+        integrity="sha512-9ekM9CHlUVUQX0M1UYcQKzCn7WaGRocDHddevyvDQ2UBVNha49jv1o8/+dEHmTZp5HZ3UAvunsD2ySb2BkqzwQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/bindings/inputmask.binding.js"
+        integrity="sha512-J6WEJE0No+5Qqm9/T93q88yRQjvoAioXG4gzJ+eqZtLi+ZBgimZDkTiLWiljwrwnoQw+xwECQm282RJ6CrJnlw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="app.js"></script>
     <script src="foto-utilitarios.js"></script>
@@ -290,7 +302,7 @@
                     Área Privativa: ${anuncio.comodidades.areaPrivativa}<br>
                     Garagem: ${anuncio.comodidades.garagem}<br>
                     Contas Básicas: ${anuncio.comodidades.contasBasicas}<br>
-                    Limpeza:${anuncio.comodidades.limpeza}<br>
+                    Limpeza: ${anuncio.comodidades.limpeza}<br>
                     Wi-Fi: ${anuncio.comodidades.wifi}<br>
                 </td>`);
                 $tr.append(`<td>
@@ -326,7 +338,7 @@
                 let fotoBase64 = await blobToBase64(await resizeImage(foto));
                 fotosBase64.push(fotoBase64)
             }
-            console.debug({fotosBase64})
+            console.debug({ fotosBase64 })
             return fotosBase64
         }
 
@@ -345,8 +357,8 @@
                     quartoMobiliado: $("#check-quarto-mobiliado").prop("checked"),
                     areaPrivativa: $("#check-area-privativa").prop("checked"),
                     garagem: $("#check-garagem").prop("checked"),
-                    contasBasicas: $("#check-permite-visitas").prop("checked"),
-                    limpeza: $("#check-permite-visitas").prop("checked"),
+                    contasBasicas: $("#check-contas-basicas").prop("checked"),
+                    limpeza: $("#check-limpeza").prop("checked"),
                     wifi: $("#check-wifi").prop("checked")
                 },
                 detalhes: {
@@ -439,7 +451,7 @@
             $("#input-foto-anuncio").change(async (e) => {
                 // https://developer.mozilla.org/pt-BR/docs/Web/API/File/Using_files_from_web_applications
                 const fotosBase64 = await montarArrayDeFotosBase64();
-                console.debug("input-foto-anuncio change:", e,  "fotos", fotosBase64)
+                console.debug("input-foto-anuncio change:", e, "fotos", fotosBase64)
                 $("#container-fotos-anuncio").empty()
                 for (const fotoBase64 of fotosBase64) {
                     $("#container-fotos-anuncio").append(`
@@ -447,7 +459,7 @@
                     `);
                 }
             })
-            
+
             // Reseta o input de arquivos ao iniciar a página
             $("#input-foto-anuncio").val('');
 
