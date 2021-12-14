@@ -64,12 +64,12 @@ async function montarArrayDeFotosBase64() {
 
 // montarObjetoAnuncio lê o formulario e retorna
 // um objeto anuncio
-function montarObjetoAnuncio() {
+async function montarObjetoAnuncio() {
     // Obtem os valores dos campos do formulário
     let anuncio = {
         titulo: $("#inputTitulo").val(),
         descricao: $("#inputDescricao").val(),
-        fotos: [],
+        fotos: await montarArrayDeFotosBase64(),
         tipo: $('#inputTipo').val(),
         universidadeProxima: $('#inputUniversidade').val(),
         distanciaUniversidade: $('#inputDistancia').val(),
@@ -106,7 +106,7 @@ function montarObjetoAnuncio() {
 
 function init() {
     // Adiciona funções para tratar os eventos 
-    $("#btnInsert").click(function () {
+    $("#btnInsert").click(async function () {
         // Verfica se o formulário está preenchido corretamente
         if (!$('#form-anuncio')[0].checkValidity()) {
             displayMessage("Preencha o formulário corretamente.");
@@ -114,7 +114,7 @@ function init() {
         }
 
         // Obtem os valores dos campos do formulário
-        let anuncio = montarObjetoAnuncio();
+        let anuncio = await montarObjetoAnuncio();
         insertAnuncio(anuncio);
 
         // Limpa o formulario
@@ -122,14 +122,14 @@ function init() {
     });
 
     // Intercepta o click do botão Alterar
-    $("#btnUpdate").click(function () {
+    $("#btnUpdate").click(async function () {
         // Obtem os valores dos campos do formulário
         let campoId = $("#inputId").val();
         if (campoId == "") {
             displayMessage("Selecione um anuncio para ser alterado.");
             return;
         }
-        let anuncio = montarObjetoAnuncio();
+        let anuncio = await montarObjetoAnuncio();
         updateAnuncio(parseInt(campoId), anuncio);
 
         // mostra anuncios
